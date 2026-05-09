@@ -68,12 +68,12 @@ class APCAutomator:
                 email_field = self.wait.until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, USERNAME_SELECTOR))
                 )
-                email_field.send_keys("gaddafi008@gmail.com")
+                email_field.send_keys("adamushehu60058@gmail.com")
                 print("  → Email entered.")
 
                 # Fill password
                 password_field = self.driver.find_element(By.CSS_SELECTOR, PASSWORD_SELECTOR)
-                password_field.send_keys("Bc63QeMU3D")
+                password_field.send_keys("08160058941")
                 print("  → Password entered.")
 
                 # Click login button
@@ -406,18 +406,18 @@ class APCAutomator:
                 print(f"  → Religion selection failed: {e}")
 
             # Ward: KACHALLA SEMBE - Direct select approach
-            print("  → Selecting Ward: KACHALLA SEMBE")
+            print("  → Selecting Ward: BARADE")
             try:
                 ward_select = Select(self.driver.find_element(By.CSS_SELECTOR, "#ward_id"))
                 # Try to select by value first (8320), then by visible text
                 try:
-                    ward_select.select_by_value("8320")
-                    print("  → Ward selected: KACHALLA SEMBE")
+                    ward_select.select_by_value("8319")
+                    print("  → Ward selected: BARADE")
                 except:
                     # Fallback: try to find by visible text
                     try:
-                        ward_select.select_by_visible_text("KACHALLA SEMBE")
-                        print("  → Ward selected: KACHALLA SEMBE")
+                        ward_select.select_by_visible_text("BARADE")
+                        print("  → Ward selected: BARADE")
                     except:
                         # Final fallback: select first option
                         ward_select.select_by_index(1)
@@ -628,52 +628,37 @@ def main():
                 ordered.append(nin)
         return ordered
 
-    raw_nins = """
-74631809019
-83156944198
-86225123052
-74964221347
-22683674801
-58024364509
-77507301479
-39231897428
-34224948510
-81257668877
-62927014209
-69891849608
-71477590790
-81776721370
-71052432109
-94088135152
-39659637416
-67159073343
-34010338236
-97316587284
-85394444122
-02330539648
-63514923303
-61771602784
-33491892032
-61460934226
-77767414280
-26511938000
-52490239310
-24482036857
-89554320092
-65856793210
-89350776892
-33900509752
-28913119706
-21303285813
-81862871967
-41847805914
-52902644331
-93574811974
-50682412502
-47998841752
-73829864586
-84768143235
-47741935973
+    raw_nins = """ 
+23908493091
+23925197904
+23928863449
+23945652104
+23965684661
+23977894855
+23982364672
+24003722167
+24026886865
+24051883383
+24083047684
+24092474981
+24133091693
+24148629429
+24175299260
+24198324705
+24203768111
+24207942135
+24208791468
+24222745853
+24227810042
+24229389375
+24235809234
+24240144308
+24248991370
+24252623283
+24265518416
+24272470454
+24285113344
+24309455379
 """
 
     nins_to_process = parse_nins(raw_nins)
