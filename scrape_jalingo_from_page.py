@@ -22,7 +22,7 @@ class JalingoPageScraper:
     def __init__(self, start_page, end_page=None):
         self.start_page = start_page
         self.end_page = end_page  # None means scrape until last page
-        self.output_file = f"karimlamido_members_p{start_page}.csv"
+        self.output_file = f"yorro_members_p{start_page}.csv"
 
         chrome_options = Options()
         chrome_options.add_argument("--no-sandbox")
@@ -88,8 +88,8 @@ class JalingoPageScraper:
             lga_select = self.wait.until(
                 EC.presence_of_element_located((By.XPATH, "//select[contains(@name,'lga') or @id='lga']"))
             )
-            Select(lga_select).select_by_visible_text("KARIM-LAMIDO")
-            print(f"[p{self.start_page}]   LGA = KARIM-LAMIDO")
+            Select(lga_select).select_by_visible_text("YORRO")
+            print(f"[p{self.start_page}]   LGA = YORRO")
             time.sleep(2)
         except Exception as e:
             print(f"[p{self.start_page}]   LGA filter failed: {e}")
